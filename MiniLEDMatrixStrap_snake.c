@@ -14,7 +14,7 @@
 
 #define SNAKE_LENDGH 6
 
-// 8ƒrƒbƒgEƒ‰ƒ“ƒ_ƒ€ì¬(ƒrƒ‹ƒgƒCƒ“ŠÖ”rand()‚Å‚à‰Â)
+// 8ãƒ“ãƒƒãƒˆãƒ»ãƒ©ãƒ³ãƒ€ãƒ ä½œæˆ(ãƒ“ãƒ«ãƒˆã‚¤ãƒ³é–¢æ•°rand()ã§ã‚‚å¯)
 unsigned int _rand( uint16_t init )
 {
 	static uint16_t seed;
@@ -42,7 +42,7 @@ int8_t getMoveWidth(){
 	}
 }
 	
-//LED‚ð“_“”‚·‚é‚Æ‚«HIGH‚É‚·‚éƒsƒ“(¶‰E”½“])
+//LEDã‚’ç‚¹ç¯ã™ã‚‹ã¨ãHIGHã«ã™ã‚‹ãƒ”ãƒ³(å·¦å³åè»¢)
 const uint8_t Anode[5][4]={
 
 	{2,0,1,0},
@@ -53,7 +53,7 @@ const uint8_t Anode[5][4]={
 	
 };
 
-//LED‚ð“_“”‚·‚é‚Æ‚«LOW‚É‚·‚éƒsƒ“(¶‰E”½“])
+//LEDã‚’ç‚¹ç¯ã™ã‚‹ã¨ãLOWã«ã™ã‚‹ãƒ”ãƒ³(å·¦å³åè»¢)
 const uint8_t Cathode[5][4]={
 	
 	{0,2,0,1},
@@ -64,17 +64,17 @@ const uint8_t Cathode[5][4]={
 	
 };
 
-//Snake‚ÌˆÊ’uî•ñ
+//Snakeã®ä½ç½®æƒ…å ±
 uint8_t Snake[SNAKE_LENDGH];
 uint8_t SnakeMoveCount;
 
-//LED‚ð‚·‚×‚ÄÁ“”
+//LEDã‚’ã™ã¹ã¦æ¶ˆç¯
 void clsdisp(){
 	PORTB = 0x00;
 	DDRB = 0x00;
 }
 
-//(x,y)‚ÌLED‚ð“_“”
+//(x,y)ã®LEDã‚’ç‚¹ç¯
 void onLED(uint8_t x ,uint8_t y){
 	DDRB |= ( 0x01 << Anode[y][x] );
 	DDRB |= ( 0x01 << Cathode[y][x] );
@@ -100,7 +100,7 @@ void moveSnake(){
 	}
 }
 
-//ƒƒCƒ“ŠÖ”
+//ãƒ¡ã‚¤ãƒ³é–¢æ•°
 int main(void){
 	
 	uint8_t i;
@@ -112,7 +112,7 @@ int main(void){
 	
 	while(1){
 		for(uint8_t j = 0; j < 60; j++){
-		for(uint8_t y = 0; y < 5 ; y++){
+			for(uint8_t y = 0; y < 5 ; y++){
 				for(uint8_t x = 0; x<4; x++){
 					clsdisp();
 					for(i = 0; i < SNAKE_LENDGH; i++){
